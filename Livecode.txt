@@ -1,0 +1,48 @@
+setup: 
+B1: npm create vite@latest fe_shop -- --template react   
+CHOOSE React and CHOOSE JAVASCRIPT
+
+B2: npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init -p
+B3: add 
+        content: [
+        "./index.html",
+        "./src/**/*.{js,ts,jsx,tsx}",
+        ],
+    vào file tailwind.config
+    và add
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+    vào index.css 
+
+Setup DarkMode
+    trong file tailwind.config.js add thêm một thuộc tính 
+    darkmode:"class", vào 
+    và các thuộc tính theme trong content có thể setup nếu bạn muốn thay đổi
+Setup Banner
+    Add thư viện để tạo hiệu ứng banner chuyển động
+        B1: npm i react-slick --save
+        B2: npm i slick-carousel 
+    Add vào file main.jsx 
+    // Import css files
+        import "slick-carousel/slick/slick.css";
+        import "slick-carousel/slick/slick-theme.css";
+Tạo hiệu ứng animation cho website
+    npm i aos --save
+    và import vào App.jsx 
+        import AOS from "aos"
+        import "aos/dist/aos.css"
+
+    đoạn này là animation cơ bản 
+      React.useEffect(()=>{
+    AOS.init(
+      {
+        duration:800,
+        easing:"ease-in-sine",
+        delay:100,
+        offset:100,
+      }
+    );
+    AOS.refresh();
+  },[])
